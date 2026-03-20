@@ -16,6 +16,7 @@ func main() {
 	}))
 
 	r.POST("/process", handlers.ProcessHandler)
+	r.GET("/video", handlers.VideoHandler)
 
 	r.Run(":8080")
 }
