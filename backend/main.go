@@ -10,13 +10,14 @@ func main() {
 	r := gin.Default()
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"http://localhost:5173"},
-		AllowMethods: []string{"POST", "GET", "OPTIONS"},
-		AllowHeaders: []string{"Origin", "Content-Type"},
+		AllowAllOrigins: true,
+		AllowMethods:    []string{"POST", "GET", "OPTIONS"},
+		AllowHeaders:    []string{"Origin", "Content-Type"},
 	}))
 
 	r.POST("/process", handlers.ProcessHandler)
 	r.GET("/video", handlers.VideoHandler)
+	r.GET("/metadata", handlers.MetadataHandler)
 
 	r.Run(":8080")
 }
